@@ -4,6 +4,7 @@ import MainPage from "./pages/Main";
 import Menu from "./components/menu";
 
 import AboutPage from "./pages/About";
+import HistoryPage from "./pages/History";
 
 
 function App() {
@@ -14,6 +15,9 @@ function App() {
         <Switch>
           <Route path="/about">
             <AboutPage/>
+          </Route>
+          <Route path="/history">
+            <HistoryPage/>
           </Route>
           <Route path="/">
             <MainPage/>

@@ -11,6 +11,10 @@ const menuItems = [
         name: 'About',
         path: '/about'
     },
+    {
+        name: 'History',
+        path: '/history'
+    },
 ]
 
 const Menu = ({history}) => {
