@@ -15,9 +15,19 @@ code {
 
 .page{
   margin: 20px auto;
-  width: 500px;
+  width: 800px;
   border-radius: 10px;
   height: 500px;
   background: white;
   padding: 10px;
+  text-align: justify;
+}
+
+.header{
+text-align: center;
+}
+
+.text{
+  text-align: justify;
+  margin: 20px;
 }

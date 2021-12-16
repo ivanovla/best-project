@@ -5,6 +5,7 @@ import Menu from "./components/menu";
 
 import AboutPage from "./pages/About";
 import HistoryPage from "./pages/History";
+import NewsPage from "./pages/News";
 
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
           </Route>
           <Route path="/history">
             <HistoryPage/>
+          </Route>
+          <Route path="/news">
+            <NewsPage/>
           </Route>
           <Route path="/">
             <MainPage/>

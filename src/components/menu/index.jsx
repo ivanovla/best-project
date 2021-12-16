@@ -15,6 +15,10 @@ const menuItems = [
         name: 'History',
         path: '/history'
     },
+{
+        name: 'News',
+        path: '/news'
+}
 ]
 
 const Menu = ({history}) => {
