@@ -2,12 +2,13 @@
     font-family: sans-serif;
     padding-block-end: 50px;
 }
-.address{
-    white-space: pre;
+.adress{
     color: blue;
     text-align: left;
     font-size: medium;
     padding-left: 20px;
+    font-family: sans-serif;
+    
 }
 
 .heading{
