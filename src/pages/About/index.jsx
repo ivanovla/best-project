@@ -20,13 +20,15 @@ const AboutPage = () => {
         </div>
 
         <div className={'info'}>
-            <h4 className={'heading'}>ADDRESS</h4>
-             <p4 className={'address'}> 
-             28A Epidavrou Str.         
-             15233 Halandri, Greece
-            </p4>
+            <h4 className={'heading'}>ADRESS</h4>
         </div>
-
+        <div className={'adress'}> 
+             28A Epidavrou Str.
+             </div>         
+             <div className={'adress'}>
+             15233 Halandri, Greece
+             </div>
+            
     </div>
 }
 

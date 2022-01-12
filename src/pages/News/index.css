@@ -1,22 +1,28 @@
 .leftimg{
     float:left;
-   
+    margin-right: 10px; 
 }
-.styleh1{
+
+.post__author{
     font-size: smaller;
     font-family: cursive;
     font-weight: normal;
-  
 }
-.styleh2{
+
+.post__header{
     font-family: inherit;
     text-align: center;
     color: lightcoral;
-
- 
 }
-.stylep{
+
+.post__paragraph{
     font-family:inherit;
+    margin-top: 10px;
+    text-indent: 20px;
+}
 
-
+.post{
+    border-radius: 10px;
+    border: 2px solid lightgray;
+    padding: 10px;
 }
