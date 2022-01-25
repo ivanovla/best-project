@@ -1,3 +1,4 @@
+import './index.css';
 import React, {useState} from 'react';
 
 function AddReview(props) {
@@ -11,7 +12,7 @@ function AddReview(props) {
         <input onChange={e => setSrc(e.target.value)} placeholder={'Введите url картинки'}/>
         <input onChange={e => setHeader(e.target.value)} placeholder={'Введите заголовок'}/>
         <input onChange={e => setParagraph(e.target.value)} placeholder={'Введите текст'}/>
-        <button onClick={e => add(name, src, header, paragraph)}>Добавить</button>
+        <button className={'add_btn'} onClick={e => add(name, src, header, paragraph)}>Добавить</button>
     </div>
 }
 export default AddReview;

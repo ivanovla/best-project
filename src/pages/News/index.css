@@ -22,7 +22,34 @@
 }
 
 .post{
+    position: relative;
     border-radius: 10px;
     border: 2px solid lightgray;
     padding: 10px;
+}
+
+.delete_btn{
+   position: absolute;
+   right: 5px;
+   top: 5px;
+   border-radius: 10px;
+   border: 2px solid rgb(185, 49, 49);
+}
+
+.modal_question{
+    text-align: center;
+    font-size: large;
+}
+.btn_yes{
+    position: relative; 
+    top: 100px;
+    bottom: 0px;
+    left: 150px;
+}
+.btn_no{
+    position: relative; 
+    top: 100px;
+    bottom: 0px;
+    left: 150px;
+    margin-left: 10px;
 }
