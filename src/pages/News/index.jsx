@@ -35,13 +35,15 @@ const menuItems = [
     const [array, setArray] = useState(menuItems);
 
     const Add = (name, src, header, paragraph) => {
-        setArray([...array, {name, src, header, paragraph}])
+        setArray([...array, {name, src, header, paragraph}]);
     } 
-    const Delete = (targetHeader) => setArray(
-      array.filter(({header}) => header !== targetHeader)
-    )
+    const Delete = (targetHeader) => {setArray(
+      array.filter(({header}) => header !== targetHeader));
+  }
 
-    const [modalActive, setModalActive] = useState(false)
+    const [modalActive, setModalActive] = useState(false);
+
+    const [activeNew, setActiveNew] = useState(null);
 
     return <div className={'page'}>
 
@@ -50,12 +52,13 @@ const menuItems = [
         <Modal active={modalActive} setActive={setModalActive}>
         <p className='modal_question'>Вы уверены, что хотите удалить?</p>
           <div>
-            <button className='btn_yes'>Да</button>
-            <button className='btn_no'>Нет</button>
+            <button className="btn_yes" onClick={() => {
+              Delete(activeNew);
+              setModalActive(false);
+            }}>Да</button>
+            <button className="btn_no" onClick={() => setModalActive(false)}>Нет</button>
           </div>
         </Modal>
-
-        <button className='new_btn' onClick={() => setModalActive(true)}>Открыть окно</button>
         
       {
         array.map(item =>
@@ -68,7 +71,10 @@ const menuItems = [
            <p className={'post__paragraph'}> {item.paragraph}
            </p>
            {today}
-           <button className={'delete_btn'} onClick={e => Delete(item.header)}>Удалить</button>
+           <button className={'delete_btn'} onClick={() => {
+             setModalActive(true);
+             setActiveNew(item.header);
+          }}>Удалить</button>
             </div> 
       )}
       
