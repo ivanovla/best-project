@@ -35,6 +35,13 @@
    border-radius: 10px;
    border: 2px solid rgb(185, 49, 49);
 }
+.edit_btn{
+    position: absolute;
+    right: 5px;
+    top: 40px;
+    border-radius: 10px;
+    border: 2px solid rgb(236, 132, 12); 
+}
 
 .modal_question{
     text-align: center;
@@ -53,3 +60,4 @@
     left: 150px;
     margin-left: 10px;
 }
+

@@ -1,35 +1,13 @@
-.edit {
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.4);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    opacity: 0;
-    pointer-events: none;
-    z-index: 3;
-    transition: 0.5s;
+.edit_data{
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: rgb(218, 216, 216);
+    display: block;
+    height: 20px;
+    width: 400px; 
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
-
-.edit.active {
-  opacity: 1;
-  pointer-events: all;
-
-}
-
-.edit_content {
-    padding: 20px;
-    border-radius: 12px;
-    background-color: white;
-    transform: scale(0.5);
-    transition: 0.4s all;
-    width: 50vw;
-    
-}
-
-.edit_content.active {
-    transform: scale(1);
+.btn_edit{
+    margin: 25px 55px 10px 60px;
 }
