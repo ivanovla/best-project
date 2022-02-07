@@ -2,6 +2,7 @@ import './index.css';
 import React, { useState } from 'react';
 import AddReview from './AddReview';
 import Modal from './ModalWindow';
+import Edit from './EditWindow';
 
 const menuItems = [
     {
@@ -36,14 +37,20 @@ const menuItems = [
 
     const Add = (name, src, header, paragraph) => {
         setArray([...array, {name, src, header, paragraph}]);
-    } 
+    }
+
     const Delete = (targetHeader) => {setArray(
       array.filter(({header}) => header !== targetHeader));
   }
 
+    const [editOpen, setEditOpen] = useState(false);
+
     const [modalActive, setModalActive] = useState(false);
 
     const [activeNew, setActiveNew] = useState(null);
+
+    const [activeItem, setActiveItem] = useState({}); // {} - потому что объект?
+
 
     return <div className={'page'}>
 
@@ -59,22 +66,30 @@ const menuItems = [
             <button className="btn_no" onClick={() => setModalActive(false)}>Нет</button>
           </div>
         </Modal>
+
+        <Edit open={editOpen} setOpen={setEditOpen} item={activeItem}></Edit>
         
       {
         array.map(item =>
            <div key={item.header} className={'post'}>
-           <img src={item.src} alt="dog" width="250" height="260" className={'leftimg'}/>
+           <img src={item.src} alt="animal" width="250" height="260" className={'leftimg'}/>
            <h1 className={'post__author'}> {item.name}
            </h1>
            <h2 className={'post__header'}> {item.header}
            </h2>
            <p className={'post__paragraph'}> {item.paragraph}
            </p>
+           
            {today}
+
            <button className={'delete_btn'} onClick={() => {
              setModalActive(true);
              setActiveNew(item.header);
-          }}>Удалить</button>
+          }}>Удалить</button> 
+          <button className={'edit_btn'} onClick={() => {
+            setEditOpen(true)
+            setActiveItem(item)
+          }}>Редактировать</button>
             </div> 
       )}
       
