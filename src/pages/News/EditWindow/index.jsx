@@ -3,7 +3,7 @@ import Modal from '../ModalWindow';
 import './index.css'
 
 
-const Edit = ({open, setOpen, item}) => {
+const EditWindow = ({open, setOpen, item, edit}) => {
     const [name, setName] = useState(item.name);
     const [src, setSrc] = useState(item.src);
     const [header, setHeader] = useState(item.header);
@@ -22,12 +22,12 @@ const Edit = ({open, setOpen, item}) => {
           <input className="edit_data"  onChange={e => setHeader(e.target.value)} value={header}/>
           <input className="edit_data"  onChange={e => setParagraph(e.target.value)} value={paragraph}/>
 
-          <button className="btn_edit">Применить</button>
+          <button className="btn_edit" onClick={() => edit(name, src, header, paragraph)}>Применить</button>
           <button className="btn_edit" onClick={() => setOpen(false)}>Отменить</button>
         
         </Modal>
     )
 }
 
-export default Edit;
+export default EditWindow;
 

@@ -2,7 +2,8 @@ import './index.css';
 import React, { useState } from 'react';
 import AddReview from './AddReview';
 import Modal from './ModalWindow';
-import Edit from './EditWindow';
+import EditWindow from './EditWindow';
+
 
 const menuItems = [
     {
@@ -26,30 +27,37 @@ const menuItems = [
 ]
     
 
-    const NewsPage = () => {
+  const NewsPage = () => {
+    
     let today = new Date();
     const dd = String(today.getDate()).padStart(2,'0');
     const mm = String(today.getMonth()+1).padStart(2,'0');
     const yyyy = today.getFullYear();
     today = dd + '/' + mm + '/' + yyyy;
 
-    const [array, setArray] = useState(menuItems);
 
     const Add = (name, src, header, paragraph) => {
         setArray([...array, {name, src, header, paragraph}]);
     }
 
-    const Delete = (targetHeader) => {setArray(
-      array.filter(({header}) => header !== targetHeader));
-  }
+    const Delete = (targetHeader) => {
+        setArray(array.filter(({header}) => header !== targetHeader));
+    }
 
-    const [editOpen, setEditOpen] = useState(false);
+    const Edit = ({name, src, header, paragraph}) => {
+         const index = array.findIndex(item => item.header == activeItem.header);
+         array[index] = ({name, src, header, paragraph});
+         setArray([...array]); 
+    }
+    const [array, setArray] = useState(menuItems);
 
     const [modalActive, setModalActive] = useState(false);
 
     const [activeNew, setActiveNew] = useState(null);
 
-    const [activeItem, setActiveItem] = useState({}); // {} - потому что объект?
+    const [activeItem, setActiveItem] = useState({}); 
+
+    const [editOpen, setEditOpen] = useState(false);
 
 
     return <div className={'page'}>
@@ -67,7 +75,7 @@ const menuItems = [
           </div>
         </Modal>
 
-        <Edit open={editOpen} setOpen={setEditOpen} item={activeItem}></Edit>
+        <EditWindow open={editOpen} setOpen={setEditOpen} item={activeItem} edit={Edit}></EditWindow>
         
       {
         array.map(item =>
