@@ -1,4 +1,13 @@
 .add_btn {
+    background-color: unset;
+    border: none; 
+    cursor: pointer;
+}
+.add_data {
     border-radius: 10px;
-    border: 2px solid rgb(73, 199, 69); 
+    border: 2px solid lightgray;
+    margin-bottom: 10px; 
+}
+.input {
+    text-align: center;
 }

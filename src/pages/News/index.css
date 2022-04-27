@@ -12,7 +12,7 @@
 .post__header{
     font-family: inherit;
     text-align: center;
-    color: lightcoral;
+    color: black;
 }
 
 .post__paragraph{
@@ -26,21 +26,26 @@
     border-radius: 10px;
     border: 2px solid lightgray;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 .delete_btn{
    position: absolute;
-   right: 5px;
+   right: 10px;
    top: 5px;
-   border-radius: 10px;
-   border: 2px solid rgb(185, 49, 49);
+   margin-bottom: 10x;
+   background-color: unset;
+   border: none;
+   cursor: pointer;
 }
 .edit_btn{
     position: absolute;
     right: 5px;
     top: 40px;
-    border-radius: 10px;
-    border: 2px solid rgb(236, 132, 12); 
+    margin-top: 10px;
+    background-color: unset;
+    border: none;
+    cursor: pointer;
 }
 
 .modal_question{

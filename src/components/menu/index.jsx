@@ -12,6 +12,10 @@ const menuItems = [
         path: '/about'
     },
     {
+        name: 'Video',
+        path: '/video'
+    },
+    {
         name: 'History',
         path: '/history'
     },

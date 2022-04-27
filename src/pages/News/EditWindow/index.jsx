@@ -18,11 +18,14 @@ const EditWindow = ({open, setOpen, item, edit}) => {
         <Modal active={open} setActive={setOpen}>
 
           <input className="edit_data"  onChange={e => setName(e.target.value)} value={name}/>
-          <input className="edit_data"  onChange={e => setSrc(e.target.value) }value={src}/>
+          <input className="edit_data"  onChange={e => setSrc(e.target.value)} value={src}/>
           <input className="edit_data"  onChange={e => setHeader(e.target.value)} value={header}/>
           <input className="edit_data"  onChange={e => setParagraph(e.target.value)} value={paragraph}/>
 
-          <button className="btn_edit" onClick={() => edit(name, src, header, paragraph)}>Применить</button>
+          <button className="btn_edit" onClick={() => {
+                    edit({name, src, header, paragraph})
+                    setOpen(false)
+                }}>Применить</button>
           <button className="btn_edit" onClick={() => setOpen(false)}>Отменить</button>
         
         </Modal>
