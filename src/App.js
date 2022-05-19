@@ -26,7 +26,7 @@ function App() {
           <Route path="/history">
             <HistoryPage/>
           </Route>
-          <Route path="/video">
+          <Route path="/countries">
             <VideoPage/>
           </Route>
           <Route path="/news">

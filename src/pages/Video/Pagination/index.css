@@ -1,0 +1,16 @@
+.page-btn{
+    list-style: none;
+    display: inline-block;
+   
+    /* display: inline-block;
+    text-align: center; */
+    }
+
+.btn{
+    padding: 7px;
+    border: 1px solid black;
+    cursor: pointer;
+    /* margin: 3px;
+    border-radius: 5px;
+    background-color: #a8d6f5; */
+}

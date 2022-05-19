@@ -17,17 +17,11 @@ code {
   margin: 20px auto;
   width: 800px;
   border-radius: 10px;
-  height: 500px;
+  height: 800px;
   background: white;
   padding: 10px;
-  text-align: justify;
 }
 
 .header{
 text-align: center;
-}
-
-.text{
-  text-align: justify;
-  margin: 20px;
 }

@@ -12,8 +12,8 @@ const menuItems = [
         path: '/about'
     },
     {
-        name: 'Video',
-        path: '/video'
+        name: 'Countries',
+        path: '/countries'
     },
     {
         name: 'History',
