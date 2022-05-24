@@ -1,16 +1,14 @@
-.page-btn{
+.paginate-btn{
     list-style: none;
     display: inline-block;
-   
-    /* display: inline-block;
-    text-align: center; */
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 2px solid grey;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 
-.btn{
-    padding: 7px;
-    border: 1px solid black;
-    cursor: pointer;
-    /* margin: 3px;
-    border-radius: 5px;
-    background-color: #a8d6f5; */
+.paginate-btn:active{
+    background-color: rgb(155, 182, 241);
+    
 }

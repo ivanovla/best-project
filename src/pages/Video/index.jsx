@@ -8,7 +8,11 @@ const VideoPage = () => {
 
 const [countries, setCountries] = useState([])
 const [currentPage, setCurrentPage] = useState(1)
-const [countriesPerPage, setCountriesPerPage] = useState(20)
+const [countriesPerPage, setCountriesPerPage] = useState(12)
+
+const [pageNumberLimit, setPageNumberLimit] = useState(12)
+const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(6)
+const [minPageNumberLimit, setMinPageNumberLimit] = useState(0)
 
 useEffect(() => {
     fetch('https://restcountries.com/v3.1/all')
@@ -27,16 +31,21 @@ const prevPage = () => setCurrentPage(prev => prev - 1)
 
 return <div className={'page'}>
         <h1 className={'header'}>Список стран:</h1>
-    <Countries countries={currentCountry}/>
-    <Pagination
-        countriesPerPage={countriesPerPage}
-        totalCountries={countries.length}
-        paginate={paginate}
-   />
-    <button className='btn' onClick={prevPage}>Prev</button>
-    <button className='btn' onClick={nextPage}>Next</button>
+            <div><Countries countries={currentCountry}/>
 
-   </div>
+                <Pagination
+                    countriesPerPage={countriesPerPage}
+                    totalCountries={countries.length}
+                    paginate={paginate}
+                    nextPage={nextPage}
+                    prevPage={prevPage}
+                    maxPageNumberLimit={maxPageNumberLimit}
+                    minPageNumberLimit={minPageNumberLimit}
+                    currentPage={currentPage}
+                />
+
+            </div>
+        </div>
 }
 
 export default VideoPage;
