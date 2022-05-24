@@ -18,7 +18,7 @@ useEffect(() => {
     fetch('https://restcountries.com/v3.1/all')
         .then((response) => response.json())
         .then((countries) => setCountries(countries));
- 
+
 }, []);
 
 const lastCountryIndex = currentPage * countriesPerPage
@@ -28,6 +28,8 @@ const currentCountry = countries.slice(firstCountryIndex, lastCountryIndex)
 const paginate = pageNumber => setCurrentPage(pageNumber)
 const nextPage = () => setCurrentPage(prev => prev + 1)
 const prevPage = () => setCurrentPage(prev => prev - 1)
+
+if (!countries.length) return <div>Loading...</div>
 
 return <div className={'page'}>
         <h1 className={'header'}>Список стран:</h1>
