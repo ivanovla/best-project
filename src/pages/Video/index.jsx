@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import {} from '@mui/material'
 import Countries from './Countries';
 import Pagination from './Pagination';
 import './index.css';
@@ -8,11 +7,7 @@ const VideoPage = () => {
 
 const [countries, setCountries] = useState([])
 const [currentPage, setCurrentPage] = useState(1)
-const [countriesPerPage, setCountriesPerPage] = useState(12)
-
-const [pageNumberLimit, setPageNumberLimit] = useState(12)
-const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(6)
-const [minPageNumberLimit, setMinPageNumberLimit] = useState(0)
+const [countriesPerPage, setCountriesPerPage] = useState(10)
 
 useEffect(() => {
     fetch('https://restcountries.com/v3.1/all')
@@ -29,7 +24,9 @@ const paginate = pageNumber => setCurrentPage(pageNumber)
 const nextPage = () => setCurrentPage(prev => prev + 1)
 const prevPage = () => setCurrentPage(prev => prev - 1)
 
-if (!countries.length) return <div>Loading...</div>
+const countriesValue = (e) => setCountriesPerPage(e.target.value)
+
+if (!countries.length) return <div className={'page'}>Loading...</div>
 
 return <div className={'page'}>
         <h1 className={'header'}>Список стран:</h1>
@@ -41,9 +38,8 @@ return <div className={'page'}>
                     paginate={paginate}
                     nextPage={nextPage}
                     prevPage={prevPage}
-                    maxPageNumberLimit={maxPageNumberLimit}
-                    minPageNumberLimit={minPageNumberLimit}
                     currentPage={currentPage}
+                    countriesValue={countriesValue}
                 />
 
             </div>
