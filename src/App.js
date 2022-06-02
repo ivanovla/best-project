@@ -7,15 +7,21 @@ import AboutPage from "./pages/About";
 import VideoPage from "./pages/Video";
 import HistoryPage from "./pages/History";
 import NewsPage from "./pages/News";
+import {Provider} from "mobx-react";
+import mainStore from "./stores/mainStore";
 
 import UserContext from './UserContext';
+
+const stores = {
+  mainStore
+};
 
 const User = {name: 'User1', surname: 'Surname1'};
 
 function App() {
-  
   return (
-    <div className="App">
+      <Provider {...stores}>
+      <div className="App">
       <UserContext.Provider value={User}>
       <Router>
         <Menu/>
@@ -39,7 +45,8 @@ function App() {
       </Router>
       </UserContext.Provider>
     </div>
-  );
+        </Provider>
+        );
 }
 
 export default App;
