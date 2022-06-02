@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import {inject, observer} from 'mobx-react';
 // import {} from '@mui/material'
 import Countries from './Countries';
 import Pagination from './Pagination';
 import './index.css';
+import mainStore from "../../stores/mainStore";
 
-const VideoPage = () => {
-
+const VideoPage = inject('mainStore')(observer((props) => {
 const [countries, setCountries] = useState([])
 const [currentPage, setCurrentPage] = useState(1)
 const [countriesPerPage, setCountriesPerPage] = useState(12)
@@ -32,6 +33,7 @@ const prevPage = () => setCurrentPage(prev => prev - 1)
 if (!countries.length) return <div>Loading...</div>
 
 return <div className={'page'}>
+    <button onClick={e => mainStore.setUser({age: parseInt(Math.random() * 100)})}>Click</button>
         <h1 className={'header'}>Список стран:</h1>
             <div><Countries countries={currentCountry}/>
 
@@ -48,6 +50,7 @@ return <div className={'page'}>
 
             </div>
         </div>
-}
+}))
+
 
 export default VideoPage;
