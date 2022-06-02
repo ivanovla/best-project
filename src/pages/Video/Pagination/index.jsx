@@ -3,7 +3,7 @@ import Select from '@material-ui/core/Select';
 import './index.css';
 import MenuItem from '@material-ui/core/MenuItem';
 
-const Pagination = ({countriesPerPage, totalCountries, paginate, prevPage, nextPage, maxPageNumberLimit, minPageNumberLimit, currentPage, countButtons}) => {
+const Pagination = ({countriesPerPage, totalCountries, paginate, prevPage, nextPage, currentPage, countButtons, countriesValue}) => {
     const pageNumbers = [];
 
     const btnPrev = <div className='paginate-btn' onClick={prevPage}>Prev</div>
@@ -34,16 +34,16 @@ const Pagination = ({countriesPerPage, totalCountries, paginate, prevPage, nextP
         }
     }, [currentPage, pageNumbers]);
 
-    // if (currentPage < maxPageNumberLimit + 1 && currentPage > minPageNumberLimit) {
         return (
                 <div>
                 {btnPrev}
                 {buttons}
                 {btnNext}
-                    <Select
+                    <Select 
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-
+                        onChange={countriesValue}
+                        value={countriesPerPage}
                     >
                         <MenuItem value={10}>10</MenuItem>
                         <MenuItem value={20}>20</MenuItem>
@@ -51,18 +51,11 @@ const Pagination = ({countriesPerPage, totalCountries, paginate, prevPage, nextP
                     </Select>
                 </div>
         )
-    // } else {
-    //     return null
-    // }
-
 }
 
 Pagination.defaultProps = {
     countButtons: 6
 }
 
-
 export default Pagination
 
-// className={currentPage == number ? 'active' : null}
-// (number < maxPageNumberLimit + 1 && number > minPageNumberLimit)
