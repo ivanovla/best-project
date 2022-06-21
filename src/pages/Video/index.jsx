@@ -5,7 +5,7 @@ import Pagination from './Pagination';
 import './index.css';
 import mainStore from "../../stores/mainStore";
 
-const VideoPage = inject('mainStore')(observer((countries) => {
+const VideoPage = inject('mainStore')(observer((props) => {
 // const [countries, setCountries] = useState([])
 const [currentPage, setCurrentPage] = useState(1)
 const [countriesPerPage, setCountriesPerPage] = useState(10)
@@ -18,7 +18,7 @@ useEffect(() => {
 
 const lastCountryIndex = currentPage * countriesPerPage
 const firstCountryIndex = lastCountryIndex - countriesPerPage
-const currentCountry = countries => countries.slice(firstCountryIndex, lastCountryIndex)
+const currentCountry = props.mainStore.countries.slice(firstCountryIndex, lastCountryIndex)
 
 const paginate = pageNumber => setCurrentPage(pageNumber)
 const nextPage = () => setCurrentPage(prev => prev + 1)
@@ -26,7 +26,7 @@ const prevPage = () => setCurrentPage(prev => prev - 1)
 
 const countriesValue = (e) => setCountriesPerPage(e.target.value)
 
-if (!countries.length) return <div className={'page'}>Loading...</div>
+if (!props.mainStore.countries.length) return <div className={'page'}>Loading...</div>
 
 return <div className={'page'}>
 
@@ -35,7 +35,7 @@ return <div className={'page'}>
 
                 <Pagination
                     countriesPerPage={countriesPerPage}
-                    totalCountries={countries.length}
+                    totalCountries={props.mainStore.countries.length}
                     paginate={paginate}
                     nextPage={nextPage}
                     prevPage={prevPage}
