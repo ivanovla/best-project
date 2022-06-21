@@ -1,19 +1,20 @@
 import {observable, action, makeAutoObservable} from 'mobx';
 
 class MainStore {
-    user = {};
+    countries = [];
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    setUser(user) {
-        this.user = user;
+    setCountries(countries) {
+        this.countries = countries;
     }
 
-    async getUser() {
-       const result = await fetch();
-       this.setUser(result);
+    listCountries (){
+        fetch('https://restcountries.com/v3.1/all')
+        .then((response) => response.json())
+        .then((countries) => this.setCountries(countries));
     }
 }
 
